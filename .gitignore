@@ -1,0 +1,11 @@
+
+#Directory
+
+x64/
+
+
+#files
+
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
