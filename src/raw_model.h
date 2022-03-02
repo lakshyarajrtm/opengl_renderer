@@ -2,14 +2,15 @@
 
 namespace rend_eng 
 {
-
 	class RawModel 
 	{
 	private:
+
 		int vaoID;
 		int vertexCount;
 
 	public:
+
 		RawModel() noexcept;
 
 		RawModel(RawModel&) noexcept;

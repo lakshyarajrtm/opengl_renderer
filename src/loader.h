@@ -9,7 +9,6 @@ namespace rend_eng
 
 	class Loader 
 	{
-
 	private:
 		std::vector<int> vaos, vbos;
 

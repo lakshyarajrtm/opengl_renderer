@@ -6,13 +6,13 @@
 
 namespace rend_eng 
 {
-
 	class Renderer 
 	{
-
 	public:
+
 		void prepare();
 
 		void render(RawModel model);
 	};
 }
+

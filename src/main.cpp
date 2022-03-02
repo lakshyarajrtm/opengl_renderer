@@ -1,4 +1,5 @@
 #pragma once
+
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
@@ -6,6 +7,7 @@
 #include "renderer.h"
 #include "loader.h"
 #include "raw_model.h"
+#include "event_manager.h"
 
 const std::vector<float> vertices {
 
@@ -22,11 +24,11 @@ int main(void)
     GLFWwindow* window;
     rend_eng::Renderer renderer;
     rend_eng::Loader loader;
-    
+    rend_eng::EventManager::createEventManager();
+ 
     if (!glfwInit())
         return -1;
 
-    
     window = glfwCreateWindow(640, 640, "OPENGL RENDERER", NULL, NULL);
     if (!window)
     {

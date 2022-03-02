@@ -13,21 +13,18 @@ rend_eng::RawModel::RawModel(RawModel&& raw) noexcept
 
 rend_eng::RawModel::RawModel(RawModel& raw) noexcept 
 {
-
 	this->vaoID = raw.getVaoID();
 	this->vertexCount = raw.getVertextCount();
 }
 
 rend_eng::RawModel::RawModel(int vaoID, int vertexCount) 
 {
-
 	this->vaoID = vaoID;
 	this->vertexCount = vertexCount;
 }
 
 int rend_eng::RawModel::getVaoID() 
 {
-
 	return vaoID;
 }
 
