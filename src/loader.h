@@ -3,6 +3,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "raw_model.h"
+#include "glm/vec3.hpp"
 
 namespace rend_eng 
 {
@@ -13,12 +14,14 @@ namespace rend_eng
 		std::vector<int> vaos, vbos;
 
 	public:
-		RawModel loadToVao(const std::vector<float>& positions);
+		RawModel loadModel(const std::vector<rend_eng::Vertex>& positions,
+			const std::vector < rend_eng::Index>& indices);
 
 	private:
 		int createVao();
 
-		void storeDataInAttributeList(int attributeNumber, const std::vector<float>& data);
+		void storeDataInAttributeList(int attributeNumber, const std::vector<rend_eng::Vertex>& data, 
+													const std::vector<rend_eng::Index>& indices);
 
 		void unbindVao();
 

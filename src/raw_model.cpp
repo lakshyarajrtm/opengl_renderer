@@ -21,6 +21,7 @@ rend_eng::RawModel::RawModel(int vaoID, int vertexCount)
 {
 	this->vaoID = vaoID;
 	this->vertexCount = vertexCount;
+	
 }
 
 int rend_eng::RawModel::getVaoID() 

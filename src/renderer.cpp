@@ -6,9 +6,9 @@ void rend_eng::Renderer::prepare()
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void rend_eng::Renderer::render(RawModel model) 
+void rend_eng::Renderer::render(RawModel model, int primitive) 
 {
 	glBindVertexArray(model.getVaoID());
 	glEnableVertexArrayAttrib(model.getVaoID(), 0);
-	glDrawArrays(GL_TRIANGLES, 0, model.getVertextCount());
+	glDrawElements(primitive, model.getVertextCount(), GL_UNSIGNED_INT, 0);
 }

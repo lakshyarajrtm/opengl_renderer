@@ -12,7 +12,7 @@ namespace rend_eng
 
 		void prepare();
 
-		void render(RawModel model);
+		void render(RawModel model, int primitive);
 	};
 }
 
