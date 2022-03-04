@@ -9,6 +9,11 @@ namespace rend_eng
 	class Renderer 
 	{
 	public:
+		Renderer();
+		~Renderer();
+
+		Renderer(Renderer&) = delete;
+		Renderer(Renderer&&) = delete;
 
 		void prepare();
 

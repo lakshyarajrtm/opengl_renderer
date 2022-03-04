@@ -9,7 +9,7 @@ rend_eng::RawModel rend_eng::Loader::loadModel(const std::vector<rend_eng::Verte
 	storeDataInAttributeList(0, positions, indices);
 	unbindVao();
 
-	return rend_eng::RawModel(vaoID, indices.size() * 3);
+	return rend_eng::RawModel(vaoID, indices.size() * sizeof(Index) / sizeof(int));
 }
 
 int rend_eng::Loader::createVao() 

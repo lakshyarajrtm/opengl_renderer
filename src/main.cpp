@@ -10,6 +10,7 @@
 #include "event_manager.h"
 #include "glm/vec3.hpp"
 
+extern std::unique_ptr<rend_eng::EventManager> event_manager;
 
 const std::vector<rend_eng::Vertex> square {
 
@@ -20,13 +21,13 @@ const std::vector<rend_eng::Vertex> square {
     
 };
 
-const std::vector<rend_eng::Index> square_indices{
+const std::vector<rend_eng::Index> square_indices {
     
     rend_eng::Index{0, 1, 3},
     rend_eng::Index{2, 1, 3}
 };
 
-const std::vector<rend_eng::Vertex> star{
+const std::vector<rend_eng::Vertex> star {
 
     rend_eng::Vertex{ -0.5f,  0.5f, 0.0f},
     rend_eng::Vertex{ -0.5f, -0.5f, 0.0f},
@@ -50,7 +51,6 @@ int main(void)
     GLFWwindow* window;
     rend_eng::Renderer renderer;
     rend_eng::Loader loader;
-    rend_eng::EventManager::createEventManager();
  
     if (!glfwInit())
         return -1;
@@ -65,7 +65,7 @@ int main(void)
     glfwMakeContextCurrent(window);
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
-    rend_eng::RawModel raw = loader.loadModel(square, square_indices);
+    rend_eng::RawModel raw = loader.loadModel(star, star_indices);
     
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
@@ -78,7 +78,6 @@ int main(void)
 
         glfwPollEvents();
     }
-
     glfwTerminate();
     return 0;
 }

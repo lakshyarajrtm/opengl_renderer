@@ -10,7 +10,6 @@ namespace rend_eng
 	class EventManager
 	{
 	public:
-		static EventManager* event_manager;
 
 		bool keys[KEY_COUNT];
 		bool mouse_keys[MOUSE_KEY_COUNT];
@@ -22,7 +21,9 @@ namespace rend_eng
 
 	public:
 
-		static void createEventManager();
+		static EventManager* createEventManager();
+		EventManager(rend_eng::EventManager& manager);
+		EventManager(rend_eng::EventManager&& manager);
 
 		~EventManager();
 

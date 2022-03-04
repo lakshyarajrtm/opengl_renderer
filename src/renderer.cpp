@@ -1,5 +1,15 @@
 #include "renderer.h"
 
+rend_eng::Renderer::Renderer()
+{
+
+}
+
+rend_eng::Renderer::~Renderer()
+{
+
+}
+
 void rend_eng::Renderer::prepare() 
 {
 	glClearColor(0, 0.5, 1, 0.5);
