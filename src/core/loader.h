@@ -14,13 +14,20 @@ namespace rend_eng
 		std::vector<int> vaos, vbos;
 
 	public:
-		RawModel loadModel(const std::vector<rend_eng::Vertex>& positions,
+		Loader() noexcept;
+
+		Loader(Loader&) = delete;
+		
+		Loader(Loader&&) = delete;
+
+		~Loader();
+
+		RawModel loadModel(const std::vector<rend_eng::Position>& positions,
 			const std::vector < rend_eng::Index>& indices);
 
-	private:
 		int createVao();
 
-		void storeDataInAttributeList(int attributeNumber, const std::vector<rend_eng::Vertex>& data, 
+		void storeDataInAttributeList(int attributeNumber, const std::vector<rend_eng::Position>& data, 
 													const std::vector<rend_eng::Index>& indices);
 
 		void unbindVao();

@@ -10,14 +10,16 @@ namespace rend_eng
 	{
 	public:
 		Renderer();
+
 		~Renderer();
 
 		Renderer(Renderer&) = delete;
+		
 		Renderer(Renderer&&) = delete;
 
 		void prepare();
 
-		void render(RawModel model, int primitive);
+		void render(RawModel& model, int primitive);
 	};
 }
 

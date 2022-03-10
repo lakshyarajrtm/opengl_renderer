@@ -9,60 +9,18 @@ rend_eng::EventManager* rend_eng::EventManager::createEventManager()
 		count++;
 		return new EventManager();
 	}
-	
 }
 
-rend_eng::EventManager::EventManager() 
+rend_eng::EventManager::EventManager() noexcept
 {
-	
 	for (int i = 0; i < KEY_COUNT; i++) 
-	{
 		keys[i] = false;
-	}
-
 }
 
-rend_eng::EventManager::EventManager(rend_eng::EventManager& manager)
-{
-	for (int i = 0; i < KEY_COUNT; i++)
-	{
-		this->keys[i] = manager.keys[i];
-	}
-
-	for (int i = 0; i < MOUSE_KEY_COUNT; i++)
-	{
-		this->mouse_keys[i] = manager.mouse_keys[i];
-	}
-
-	this->scan_code = manager.scan_code;
-	this->action = manager.action;
-	this->key_mods = manager.key_mods;
-	this->xPos = manager.xPos;
-	this->yPos = manager.yPos;
-}
-
-rend_eng::EventManager::EventManager(rend_eng::EventManager&& manager)
-{
-	for (int i = 0; i < KEY_COUNT; i++)
-	{
-		this->keys[i] = manager.keys[i];
-	}
-
-	for (int i = 0; i < MOUSE_KEY_COUNT; i++)
-	{
-		this->mouse_keys[i] = manager.mouse_keys[i];
-	}
-
-	this->scan_code = manager.scan_code;
-	this->action = manager.action;
-	this->key_mods = manager.key_mods;
-	this->xPos = manager.xPos;
-	this->yPos = manager.yPos;
-}
 
 rend_eng::EventManager::~EventManager() 
 {
-	std::cout << "DELETING event_manager";
+	std::cout << "Deleting event_manager";
 }
 
 void rend_eng::keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) 

@@ -2,8 +2,8 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
-const int KEY_COUNT = 256;
-const int MOUSE_KEY_COUNT = 3;
+constexpr int KEY_COUNT = 256;
+constexpr int MOUSE_KEY_COUNT = 3;
 
 namespace rend_eng
 {
@@ -22,14 +22,16 @@ namespace rend_eng
 	public:
 
 		static EventManager* createEventManager();
-		EventManager(rend_eng::EventManager& manager);
-		EventManager(rend_eng::EventManager&& manager);
+
+		EventManager(EventManager&) = delete;
+
+		EventManager(EventManager&&) = delete;
 
 		~EventManager();
 
 	private:
 
-		EventManager();
+		EventManager() noexcept;
 
 	};
 
@@ -38,7 +40,6 @@ namespace rend_eng
 	void cursorPositionCallback(GLFWwindow* window, double xpos, double ypos);
 
 	void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
-
 
 }
 

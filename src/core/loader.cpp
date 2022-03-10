@@ -2,13 +2,22 @@
 #include "raw_model.h"
 
 
-rend_eng::RawModel rend_eng::Loader::loadModel(const std::vector<rend_eng::Vertex>& positions,
+rend_eng::Loader::Loader() noexcept
+{
+
+}
+
+rend_eng::Loader::~Loader()
+{
+
+}
+
+rend_eng::RawModel rend_eng::Loader::loadModel(const std::vector<rend_eng::Position>& positions,
 													const std::vector <rend_eng::Index>& indices)
 {
 	int vaoID = createVao();
 	storeDataInAttributeList(0, positions, indices);
 	unbindVao();
-
 	return rend_eng::RawModel(vaoID, indices.size() * sizeof(Index) / sizeof(int));
 }
 
@@ -22,7 +31,7 @@ int rend_eng::Loader::createVao()
 	return vaoID;
 }
 
-void rend_eng::Loader::storeDataInAttributeList(int attributeNumber, const std::vector<rend_eng::Vertex>& data,
+void rend_eng::Loader::storeDataInAttributeList(int attributeNumber, const std::vector<rend_eng::Position>& data,
 														const std::vector < rend_eng::Index>& indices)
 {
 	int vboID;
