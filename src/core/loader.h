@@ -22,12 +22,12 @@ namespace rend_eng
 
 		~Loader();
 
-		RawModel loadModel(const std::vector<rend_eng::Position>& positions,
+		RawModel loadModel(const std::vector<rend_eng::Vertex>& positions,
 			const std::vector < rend_eng::Index>& indices);
 
 		int createVao();
 
-		void storeDataInAttributeList(int attributeNumber, const std::vector<rend_eng::Position>& data, 
+		void storeDataInAttributeList(std::pair<int, int> attributeNumber, const std::vector<rend_eng::Vertex>& data, 
 													const std::vector<rend_eng::Index>& indices);
 
 		void unbindVao();

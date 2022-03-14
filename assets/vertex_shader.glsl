@@ -1,11 +1,13 @@
 
-#version 330 core
+#version 460 core
 
-layout (location = 0) in vec3 position;
-out vec4 color;
+layout (location = 0) in vec3 vPosition;
+layout (location = 1) in vec4 vColor;
+
+out vec4 fColor;
 
 void main()
 {
-	gl_Position = vec4(position, 1.0);
-	color = gl_Position;
+	gl_Position = vec4(vPosition, 1.0);
+	fColor = vColor;
 }

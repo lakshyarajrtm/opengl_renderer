@@ -20,6 +20,8 @@ namespace rend_eng
 		void prepare();
 
 		void render(RawModel& model, int primitive);
+
+		// static void drawCube(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
 	};
 }
 

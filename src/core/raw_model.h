@@ -6,7 +6,7 @@
 
 namespace rend_eng 
 {
-	struct Position
+	struct Position 
 	{
 		float x, y, z;
 	};

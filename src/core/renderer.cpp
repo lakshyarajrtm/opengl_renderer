@@ -15,5 +15,6 @@ void rend_eng::Renderer::render(RawModel& model, int primitive)
 	glUseProgram(model.program_id);
 	glBindVertexArray(model.getVaoID());
 	glEnableVertexArrayAttrib(model.getVaoID(), 0);
+	glEnableVertexArrayAttrib(model.getVaoID(), 1);
 	glDrawElements(primitive, model.getVertextCount(), GL_UNSIGNED_INT, 0);
 }

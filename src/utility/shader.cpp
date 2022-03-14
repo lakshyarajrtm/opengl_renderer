@@ -12,8 +12,6 @@ Shader::~Shader()
     glDeleteShader(this->s_id);
 }
 
-
-
 void Shader::uploadShader(const std::string fileName)
 {
     std::ifstream file;
@@ -43,7 +41,7 @@ void Shader::compileShader(const GLuint shader_type, const int shader_count)
     {
         int len;
         glGetShaderiv(id, GL_INFO_LOG_LENGTH, &len);
-        char* message = (char*)alloca(len * sizeof(char));
+        char* message = (char*) alloca(len * sizeof(char));
         glGetShaderInfoLog(id, len, &len, message);
 
         std::cout << "ERROR::SHADER_COMPILATION: Failed to compile " <<
@@ -65,7 +63,7 @@ unsigned int Shader::createProgram(const Shader vertexShader, const Shader fragm
     {
         int len;
         glGetShaderiv(program, GL_INFO_LOG_LENGTH, &len);
-        char* message = (char*)alloca(len * sizeof(char));
+        char* message = (char*) alloca(len * sizeof(char));
         glGetProgramInfoLog(program, len, &len, message);
         std::cout << "ERROR::SHADER_LINKING: failed to link\n" << message << std::endl;
     }
