@@ -2,6 +2,11 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "raw_model.h"
+#include "glm/vec3.hpp"
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 
 namespace rend_eng 
@@ -21,6 +26,7 @@ namespace rend_eng
 
 		void render(RawModel& model, int primitive);
 
+		void transform(RawModel& model, float rotate, float scale, int axis);
 		// static void drawCube(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
 	};
 }
