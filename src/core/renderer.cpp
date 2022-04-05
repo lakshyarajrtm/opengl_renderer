@@ -19,11 +19,12 @@ void rend_eng::Renderer::render(RawModel& model, int primitive)
 	glDrawElements(primitive, model.getVertextCount(), GL_UNSIGNED_INT, 0);
 }
 
-void rend_eng::Renderer::transform(RawModel& model, float rotate, float scale, int axis)
+void rend_eng::Renderer::transform(RawModel& model, Position translate, float rotate, float scale, int axis)
 {
 	// choose axis 0 for rotation in x axis, 1 for y axis and 2 for z axis
 	glm::mat4 trans = glm::mat4(1.0f);
-	trans = glm::scale(trans, glm::vec3(scale, scale, scale));
+	trans = glm::translate(trans, glm::vec3(translate.x, translate.y, translate.z));
+	trans = glm::scale(trans, glm::vec3(scale, scale, scale));\
 	glm::vec3 rotation_axis;
 	switch (axis)
 	{

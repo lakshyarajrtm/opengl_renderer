@@ -26,7 +26,7 @@ namespace rend_eng
 
 		void render(RawModel& model, int primitive);
 
-		void transform(RawModel& model, float rotate, float scale, int axis);
+		void transform(RawModel& model, Position translate, float rotate, float scale, int axis);
 		// static void drawCube(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
 	};
 }

@@ -57,7 +57,7 @@ int rend_eng::WindowManager::update()
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
-        renderer.transform(raw, 40.0f, 0.5, 0);
+        renderer.transform(raw, { 0.5f, 0.5f, 0.0f }, 40.0f, 0.5, 0);
         /* Render here */
         renderer.prepare();
         renderer.render(raw, GL_TRIANGLES);
