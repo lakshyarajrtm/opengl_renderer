@@ -2,7 +2,7 @@
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 #include <iostream>
-#include "..\utility\shader.h"
+
 
 namespace rend_eng 
 {
@@ -31,14 +31,12 @@ namespace rend_eng
 	class RawModel 
 	{
 	private:
-
 		int vaoID;
 		int vertexCount;
-		Shader vertex, fragment;
 
 	public:
-		unsigned int program_id;
-
+		unsigned int p_id;
+		
 
 	public:
 
@@ -53,8 +51,6 @@ namespace rend_eng
 		int getVaoID();
 
 		int getVertextCount();
-
-		void uploadAndCompileShader(std::string& vertex_shader_file, std::string& fragment_shader_file);
 
 		RawModel& operator=(RawModel&);
 

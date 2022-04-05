@@ -6,13 +6,16 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include "..\core\raw_model.h"
 
 class Shader
 {
 public:
-	std::string shader_source;
+	std::string vertex_shader_source;
+	std::string fragment_shader_source;
 	static std::vector<int> shader_id, program_id;
-	unsigned int s_id;
+	unsigned int vertex_shader_id, fragment_shader_id;
+	unsigned int p_id;
 
 public:
 
@@ -20,10 +23,17 @@ public:
 
 	~Shader();
 
-	void uploadShader(const std::string fileName);
+	void uploadVertexShader(const std::string& fileName);
+
+	void uploadFragmentShader(const std::string& fileName);
 
 	void compileShader(const GLuint shader_type, const int shader_count);
+
+	void uploadAndCompileShader(rend_eng::RawModel& raw, std::string& vertex_shader_file, std::string& fragment_shader_file);
 	
-	static unsigned int createProgram(const Shader vertexShader, const Shader fragmentShader);
+	unsigned int createProgram();
+
+	void useProgram();
+
 };
 

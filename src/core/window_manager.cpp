@@ -40,27 +40,32 @@ int rend_eng::WindowManager::init(int width, int height)
 
     glfwMakeContextCurrent(window);
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+    return 0;
 }
 
 int rend_eng::WindowManager::update()
 {
     rend_eng::Renderer renderer;
     rend_eng::Loader loader;
+    Shader shader;
 
     const std::string path = "C:\\Users\\dell\\source\\repos\\opengl_renderer\\opengl_tutorial\\assets\\";
     std::string vertex_shader_path = path + "vertex_shader.glsl";
     std::string fragment_shader_path = path + "fragment_shader.glsl";
 
     rend_eng::RawModel raw = loader.loadModel(square, square_indices);
-    raw.uploadAndCompileShader(vertex_shader_path, fragment_shader_path);
-
+    shader.uploadAndCompileShader(raw, vertex_shader_path, fragment_shader_path);
+    shader.useProgram();
+    
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
-        renderer.transform(raw, { 0.5f, 0.5f, 0.0f }, 40.0f, 0.5, 0);
+        //renderer.transform(raw, { 0.5f, 0.5f, 0.0f }, 40.0f, 0.5, 0);
+
+        renderer.transform3d(raw);
         /* Render here */
         renderer.prepare();
-        renderer.render(raw, GL_TRIANGLES);
+        renderer.render_model(raw, GL_TRIANGLES);
 
         glfwSwapBuffers(window);
 

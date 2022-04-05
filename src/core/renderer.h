@@ -24,10 +24,12 @@ namespace rend_eng
 
 		void prepare();
 
-		void render(RawModel& model, int primitive);
+		void render_model(RawModel& model, int primitive);
 
 		void transform(RawModel& model, Position translate, float rotate, float scale, int axis);
 		// static void drawCube(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
+
+		void transform3d(RawModel& model);
 	};
 }
 

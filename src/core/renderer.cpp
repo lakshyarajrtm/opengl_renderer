@@ -10,9 +10,8 @@ void rend_eng::Renderer::prepare()
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void rend_eng::Renderer::render(RawModel& model, int primitive) 
+void rend_eng::Renderer::render_model(RawModel& model, int primitive) 
 {
-	glUseProgram(model.program_id);
 	glBindVertexArray(model.getVaoID());
 	glEnableVertexArrayAttrib(model.getVaoID(), 0);
 	glEnableVertexArrayAttrib(model.getVaoID(), 1);
@@ -24,7 +23,7 @@ void rend_eng::Renderer::transform(RawModel& model, Position translate, float ro
 	// choose axis 0 for rotation in x axis, 1 for y axis and 2 for z axis
 	glm::mat4 trans = glm::mat4(1.0f);
 	trans = glm::translate(trans, glm::vec3(translate.x, translate.y, translate.z));
-	trans = glm::scale(trans, glm::vec3(scale, scale, scale));\
+	trans = glm::scale(trans, glm::vec3(scale, scale, scale));
 	glm::vec3 rotation_axis;
 	switch (axis)
 	{
@@ -40,7 +39,7 @@ void rend_eng::Renderer::transform(RawModel& model, Position translate, float ro
 	}
 	trans = glm::rotate(trans, rotate, rotation_axis);
 
-	unsigned int transformLoc = glGetUniformLocation(model.program_id, "transform");
+	unsigned int transformLoc = glGetUniformLocation(model.p_id, "transform");
 
 	/*
 		* this function must be in the renderer loop
@@ -51,4 +50,28 @@ void rend_eng::Renderer::transform(RawModel& model, Position translate, float ro
 		if name starts with the reserved prefix "gl_".
 	 */
 	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
+}
+
+
+void rend_eng::Renderer::transform3d(RawModel& model)
+{
+	glm::mat4 mod        = glm::mat4(1.0f);
+	glm::mat4 view       = glm::mat4(1.0f);
+	glm::mat4 projection = glm::mat4(1.0f);
+
+
+	mod = glm::rotate(mod, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+	// note that we're translating the scene in the reverse direction of where we want to move
+	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+	projection = glm::perspective(glm::radians(45.0f), 800.0f / 800.0f, 0.1f, 100.0f);
+
+
+	unsigned int model_loc = glGetUniformLocation(model.p_id, "model");
+	unsigned int view_loc = glGetUniformLocation(model.p_id, "view");
+	unsigned int projection_loc = glGetUniformLocation(model.p_id, "projection");
+
+	glUniformMatrix4fv(model_loc, 1, GL_FALSE, glm::value_ptr(mod));
+	glUniformMatrix4fv(view_loc, 1, GL_FALSE, glm::value_ptr(view));
+	glUniformMatrix4fv(projection_loc, 1, GL_FALSE, glm::value_ptr(projection));
+
 }

@@ -7,7 +7,11 @@
 #include "loader.h"
 #include "raw_model.h"
 #include "event_manager.h"
+
+#include "..\utility\shader.h"
 #include "glm/vec3.hpp"
+
+
 namespace rend_eng
 {
 	class WindowManager

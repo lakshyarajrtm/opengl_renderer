@@ -53,11 +53,3 @@ rend_eng::RawModel& rend_eng::RawModel::operator=(RawModel&& model)
 	return *this;
 }
 
-void rend_eng::RawModel::uploadAndCompileShader(std::string& vertex_shader_file, std::string& fragment_shader_file)
-{
-	this->vertex.uploadShader(vertex_shader_file);
-	this->fragment.uploadShader(fragment_shader_file);
-	this->vertex.compileShader(GL_VERTEX_SHADER, 1);
-	this->fragment.compileShader(GL_FRAGMENT_SHADER, 1);
-	this->program_id = Shader::createProgram(vertex, fragment);
-}
