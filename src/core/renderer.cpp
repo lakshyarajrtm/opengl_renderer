@@ -7,7 +7,7 @@ rend_eng::Renderer::~Renderer() {}
 void rend_eng::Renderer::prepare() 
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void rend_eng::Renderer::render_model(RawModel& model, int primitive) 
@@ -60,9 +60,9 @@ void rend_eng::Renderer::transform3d(RawModel& model)
 	glm::mat4 projection = glm::mat4(1.0f);
 
 
-	mod = glm::rotate(mod, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+	mod = glm::rotate(mod, (float)glfwGetTime() * glm::radians(-95.0f), glm::vec3(1.0f, 0.0f, 1.0f));
 	// note that we're translating the scene in the reverse direction of where we want to move
-	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -5.0f));
 	projection = glm::perspective(glm::radians(45.0f), 800.0f / 800.0f, 0.1f, 100.0f);
 
 
