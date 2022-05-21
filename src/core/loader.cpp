@@ -32,9 +32,9 @@ void rend_eng::Loader::storeDataInAttributeList(std::pair<int, int> attributeNum
 	glGenBuffers(1, (GLuint*)&vboID);
 	glBindBuffer(GL_ARRAY_BUFFER, vboID);
 	glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(Vertex), (void*)data.data(), GL_STATIC_DRAW);
-	glVertexAttribPointer(attributeNumber.first, sizeof(Position) / sizeof(float), GL_FLOAT, GL_FALSE,
+	glVertexAttribPointer(attributeNumber.first, sizeof(vec3) / sizeof(float), GL_FLOAT, GL_FALSE,
 														sizeof(Vertex), (void*)offsetof(Vertex, position));
-	glVertexAttribPointer(attributeNumber.second, sizeof(Color) / sizeof(float), GL_FLOAT, GL_FALSE,
+	glVertexAttribPointer(attributeNumber.second, sizeof(vec4) / sizeof(float), GL_FLOAT, GL_FALSE,
 														sizeof(Vertex), (void*) offsetof(Vertex, color));
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 

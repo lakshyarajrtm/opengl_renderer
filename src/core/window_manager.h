@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <vector>
-#include "renderer.h"
+#include "..\renderer\renderer.h"
 #include "loader.h"
 #include "raw_model.h"
 #include "event_manager.h"

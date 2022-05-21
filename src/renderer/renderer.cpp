@@ -18,7 +18,7 @@ void rend_eng::Renderer::render_model(RawModel& model, int primitive)
 	glDrawElements(primitive, model.getVertextCount(), GL_UNSIGNED_INT, 0);
 }
 
-void rend_eng::Renderer::transform(RawModel& model, Position translate, float rotate, float scale, int axis)
+void rend_eng::Renderer::transform(RawModel& model, vec3 translate, float rotate, float scale, int axis)
 {
 	// choose axis 0 for rotation in x axis, 1 for y axis and 2 for z axis
 	glm::mat4 trans = glm::mat4(1.0f);
@@ -53,17 +53,17 @@ void rend_eng::Renderer::transform(RawModel& model, Position translate, float ro
 }
 
 
-void rend_eng::Renderer::transform3d(RawModel& model)
+void rend_eng::Renderer::transform3d(RawModel& model, float rotation_angle, vec3 axis, vec3 translation_vec, float prespective_angle)
 {
 	glm::mat4 mod        = glm::mat4(1.0f);
 	glm::mat4 view       = glm::mat4(1.0f);
 	glm::mat4 projection = glm::mat4(1.0f);
 
 
-	mod = glm::rotate(mod, (float)glfwGetTime() * glm::radians(-95.0f), glm::vec3(1.0f, 0.0f, 1.0f));
+	mod = glm::rotate(mod, (float)glfwGetTime() * glm::radians(rotation_angle), glm::vec3(axis.x, axis.y, axis.z));
 	// note that we're translating the scene in the reverse direction of where we want to move
-	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -5.0f));
-	projection = glm::perspective(glm::radians(45.0f), 800.0f / 800.0f, 0.1f, 100.0f);
+	view = glm::translate(view, glm::vec3(translation_vec.x, translation_vec.y, translation_vec.z));
+	projection = glm::perspective(glm::radians(prespective_angle), 800.0f / 800.0f, 0.1f, 100.0f);
 
 
 	unsigned int model_loc = glGetUniformLocation(model.p_id, "model");
@@ -73,5 +73,4 @@ void rend_eng::Renderer::transform3d(RawModel& model)
 	glUniformMatrix4fv(model_loc, 1, GL_FALSE, glm::value_ptr(mod));
 	glUniformMatrix4fv(view_loc, 1, GL_FALSE, glm::value_ptr(view));
 	glUniformMatrix4fv(projection_loc, 1, GL_FALSE, glm::value_ptr(projection));
-
 }

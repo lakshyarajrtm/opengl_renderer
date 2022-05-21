@@ -3,10 +3,10 @@ extern std::unique_ptr<rend_eng::EventManager> event_manager;
 
 const std::vector<rend_eng::Vertex> square {
 
-    {rend_eng::Position{ -0.5f,  0.5f, 0.0f}, rend_eng::Color{ 0.87f, 0.23f, 0.28f, 1.0f}},
-    {rend_eng::Position{ -0.5f, -0.5f, 0.0f}, rend_eng::Color{ 0.87f, 0.23f, 0.28f, 1.0f}},
-    {rend_eng::Position{  0.5f, -0.5f, 0.0f}, rend_eng::Color{ 0.87f, 0.23f, 0.28f, 1.0f}},
-    {rend_eng::Position{  0.5f,  0.5f, 0.0f}, rend_eng::Color{ 0.87f, 0.23f, 0.28f, 1.0f}}
+    {rend_eng::vec3{ -0.5f,  0.5f, 0.0f}, rend_eng::vec4{ 0.87f, 0.23f, 0.28f, 1.0f}},
+    {rend_eng::vec3{ -0.5f, -0.5f, 0.0f}, rend_eng::vec4{ 0.87f, 0.23f, 0.28f, 1.0f}},
+    {rend_eng::vec3{  0.5f, -0.5f, 0.0f}, rend_eng::vec4{ 0.87f, 0.23f, 0.28f, 1.0f}},
+    {rend_eng::vec3{  0.5f,  0.5f, 0.0f}, rend_eng::vec4{ 0.87f, 0.23f, 0.28f, 1.0f}}
 };
 
 const std::vector<rend_eng::Index> square_indices{
@@ -18,16 +18,16 @@ const std::vector<rend_eng::Index> square_indices{
 
 const std::vector<rend_eng::Vertex> cube{
 
-    {rend_eng::Position{-1.0, -1.0, 1.0}, rend_eng::Color{ 0.87f, 0.23f, 0.28f, 1.0f}},
-    {rend_eng::Position{1.0, -1.0, 1.0}, rend_eng::Color{ 0.87f, 0.23f, 0.28f, 1.0f}},
-    {rend_eng::Position{1.0,  1.0, 1.0}, rend_eng::Color{ 0.87f, 0.23f, 0.28f, 1.0f}},
-    {rend_eng::Position{-1.0,  1.0, 1.0}, rend_eng::Color{ 0.87f, 0.23f, 0.28f, 1.0f}},
+    {rend_eng::vec3{-1.0, -1.0, 1.0}, rend_eng::vec4{ 0.87f, 0.23f, 0.28f, 1.0f}},
+    {rend_eng::vec3{1.0, -1.0, 1.0}, rend_eng::vec4{ 0.87f, 0.23f, 0.28f, 1.0f}},
+    {rend_eng::vec3{1.0,  1.0, 1.0}, rend_eng::vec4{ 0.87f, 0.23f, 0.28f, 1.0f}},
+    {rend_eng::vec3{-1.0,  1.0, 1.0}, rend_eng::vec4{ 0.87f, 0.23f, 0.28f, 1.0f}},
 
 
-    {rend_eng::Position{-1.0, -1.0, -1.0}, rend_eng::Color{ 0.87f, 0.23f, 0.28f, 1.0f}},
-    {rend_eng::Position{1.0, -1.0, -1.0}, rend_eng::Color{ 0.87f, 0.23f, 0.28f, 1.0f}},
-    {rend_eng::Position{1.0,  1.0, -1.0}, rend_eng::Color{ 0.87f, 0.23f, 0.28f, 1.0f}},
-    {rend_eng::Position{-1.0,  1.0, -1.0}, rend_eng::Color{ 0.87f, 0.23f, 0.28f, 1.0f}}
+    {rend_eng::vec3{-1.0, -1.0, -1.0}, rend_eng::vec4{ 0.87f, 0.23f, 0.28f, 1.0f}},
+    {rend_eng::vec3{1.0, -1.0, -1.0}, rend_eng::vec4{ 0.87f, 0.23f, 0.28f, 1.0f}},
+    {rend_eng::vec3{1.0,  1.0, -1.0}, rend_eng::vec4{ 0.87f, 0.23f, 0.28f, 1.0f}},
+    {rend_eng::vec3{-1.0,  1.0, -1.0}, rend_eng::vec4{ 0.87f, 0.23f, 0.28f, 1.0f}}
 
 };
 
@@ -52,52 +52,6 @@ const std::vector<rend_eng::Index> cube_indices{
     rend_eng::Index{3, 2, 6},
     rend_eng::Index{6, 7, 3}
 };
-
-//const std::vector<rend_eng::Vertex> cube{
-//
-//    {rend_eng::Position{-0.5f, -0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f, -0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f,  0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f,  0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{-0.5f,  0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{-0.5f, -0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//                                               
-//    {rend_eng::Position{-0.5f, -0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f, -0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f,  0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f,  0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{-0.5f,  0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{-0.5f, -0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//                                           
-//    {rend_eng::Position{-0.5f,  0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{-0.5f,  0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{-0.5f, -0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{-0.5f, -0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{-0.5f, -0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{-0.5f,  0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//                                           
-//    {rend_eng::Position{ 0.5f,  0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f,  0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f, -0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f, -0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f, -0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f,  0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//                                           
-//    {rend_eng::Position{-0.5f, -0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f, -0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f, -0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f, -0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{-0.5f, -0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{-0.5f, -0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//                                           
-//    {rend_eng::Position{-0.5f,  0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f,  0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f,  0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{ 0.5f,  0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{-0.5f,  0.5f,  0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}},
-//    {rend_eng::Position{-0.5f,  0.5f, -0.5f}, rend_eng::Color{ 1.0f, 1.0f, 1.0f, 1.0f}}
-//
-//};
 
 
 rend_eng::WindowManager::WindowManager() : height(0), width(0)
@@ -135,7 +89,7 @@ int rend_eng::WindowManager::update()
     rend_eng::Loader loader;
     Shader shader;
 
-    const std::string path = "C:\\Users\\dell\\source\\repos\\opengl_renderer\\opengl_tutorial\\assets\\";
+    const std::string path = "C:\\Users\\dell\\source\\repos\\coding_challenges\\opengl_renderer\\opengl_tutorial\\assets\\";
     std::string vertex_shader_path = path + "vertex_shader.glsl";
     std::string fragment_shader_path = path + "fragment_shader.glsl";
 
@@ -146,9 +100,9 @@ int rend_eng::WindowManager::update()
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
-        //renderer.transform(raw, { 0.5f, 0.5f, 0.0f }, 40.0f, 0.5, 0);
+        
+        renderer.transform3d(raw, -55.0f, { 1.0f, 0.0f, 1.0f }, {0.0f, 0.0f, -5.0f}, 45.0f);
 
-        renderer.transform3d(raw);
         /* Render here */
         renderer.prepare();
         renderer.render_model(raw, GL_TRIANGLES);

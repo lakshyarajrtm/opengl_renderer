@@ -6,20 +6,20 @@
 
 namespace rend_eng 
 {
-	struct Position 
+	struct vec3 
 	{
 		float x, y, z;
 	};
 
-	struct Color
+	struct vec4
 	{
 		float x, y, z, w;
 	};
 
 	struct Vertex
 	{
-		Position position;
-		Color color;
+		vec3 position;
+		vec4 color;
 	};
 
 	struct Index
